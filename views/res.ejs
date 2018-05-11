@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Algo</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Algo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
-<div class="container">
-  <h2>Algo</h2>
-  <p>Résultat de l'investissement:</p>
-  <button type="button" class="btn btn-default text-center" href="/">Accueil</button>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Investissement initial</th>
-        <th>Nombre de jours</th>
-        <th>Investissement par jour</th>
-        <th>Bitcoin possédé</th>
-        <th>Cours du bitcoin le dernier jour</th>
-        <th>Investissement final</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><%= invest %></td>
-        <td><%= nb_jours %></td>
-        <td><%= invest_jour %></td>
-        <td><%= btc %></td>
-        <td><%= cours_last %></td>
-        <td><%= invest_final %></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+    
+    <div class="container">
+        <a type="button" class="btn btn-primary text-center" href="/">< Accueil</a>
+        <h2>Algo</h2>
+        <p>Résultat de l'investissement:</p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Investissement initial</th>
+                    <th>Nombre de jours</th>
+                    <th>Investissement par jour</th>
+                    <th>Bitcoin possédé</th>
+                    <th>Cours du bitcoin le dernier jour</th>
+                    <th>Investissement final</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><%= invest %></td>
+                    <td><%= nb_jours %></td>
+                    <td><%= invest_jour %></td>
+                    <td><%= btc %></td>
+                    <td><%= cours_last %></td>
+                    <td><%= invest_final %></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
 </body>
 </html>
