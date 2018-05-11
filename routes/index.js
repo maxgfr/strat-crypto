@@ -1,21 +1,23 @@
 var express = require('express');
 var router = express.Router();
-global.fetch = require('node-fetch');
-var cc = require('cryptocompare');
+
 var axios = require('axios');
 
-
-
-/* GET home page. */
 router.get('/', function(req, res, next) {
+    res.render('index');
+});
 
-    var nb_total_investi = 100000;
+router.post('/algo', function(req, res, next) {
+    console.log(req.body);
+    var nb_total_investi = req.body.price;
     console.log("Investissement initial : " + nb_total_investi);
-    var date_first = '2017-12-19';
-    var date_last = '2018-02-05';
+    var date_first = req.body.date1_submit;
+    var date_last = req.body.date2_submit;
     var oneDay = 24*60*60*1000;
-    var firstDate = new Date(2017,12,19);
-    var secondDate = new Date(2018,02,05);
+    var split_first = date_first.split("-");
+    var split_last = date_last.split("-");
+    var firstDate = new Date(split_first[0],split_first[1],split_first[2]);
+    var secondDate = new Date(split_last[0],split_last[1],split_last[2]);
     var nb_jours = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
     console.log('Nombre de jours : ' + nb_jours);
     var invest_par_jour = nb_total_investi / nb_jours ;
@@ -40,18 +42,13 @@ router.get('/', function(req, res, next) {
         console.log("Bitcoin possédé : " + nb_bitcoin_acquis);
         console.log("Cours du bitcoin le dernier jour : " + tab_price[nb_jours-1]);
         console.log("Investissement final : " + mes_sous);
+
+        res.render('index', { invest: nb_total_investi, invest_jour: invest_par_jour, btc: nb_bitcoin_acquis, cours_last: tab_price[nb_jours-1], invest_final: mes_sous});
       })
       .catch(error => {
         console.log(error);
       });
-
-    // Basic Usage:
-    /*cc.priceHistorical('BTC', ['USD', 'EUR'], new Date('2017-01-01'))
-    .then(prices => {
-      console.log(prices)
-    })
-    .catch(console.error)*/
-  res.render('index', { title: 'Express' });
 });
+
 
 module.exports = router;
