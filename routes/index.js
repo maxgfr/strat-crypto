@@ -43,7 +43,7 @@ router.post('/algo', function(req, res, next) {
         console.log("Cours du bitcoin le dernier jour : " + tab_price[nb_jours-1]);
         console.log("Investissement final : " + mes_sous);
 
-        res.render('index', { invest: nb_total_investi, nb_jours: nb_jours,invest_jour: invest_par_jour, btc: nb_bitcoin_acquis, cours_last: tab_price[nb_jours-1], invest_final: mes_sous});
+        res.render('res', { invest: nb_total_investi, nb_jours: nb_jours,invest_jour: invest_par_jour, btc: nb_bitcoin_acquis, cours_last: tab_price[nb_jours-1], invest_final: mes_sous});
       })
       .catch(error => {
         console.log(error);
