@@ -1,6 +1,5 @@
 # strat-crypto
 
-
 strat-crypto is an algorithm to invest in the cryptocurrencies.
 
 During one period, you will invest the same amount each day
